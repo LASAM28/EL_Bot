@@ -8,6 +8,7 @@ const DBM = {};
 DBM.version = "2.1.5";
 
 const DiscordJS = (DBM.DiscordJS = require("discord.js"));
+require ('dotenv').config();
 
 const requiredDjsVersion = "13.7.0";
 if (DiscordJS.version < requiredDjsVersion) {
@@ -617,7 +618,7 @@ Bot.initEvents = function () {
 };
 
 Bot.login = function () {
-  this.bot.login(Files.data.settings.token);
+  this.bot.login(process.env.DISCORD_TOKEN);
 };
 
 Bot.onReady = function () {
